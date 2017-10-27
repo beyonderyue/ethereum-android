@@ -1,4 +1,4 @@
-## ethereum-android (geth)
+# ethereum-android (geth)
 
 ## 0 Setup envirement
 In your app build.gradle, add the line below
@@ -85,7 +85,7 @@ You need send transaction, and you need set data
 
 Enjoy it!
 
-Appendix
+# Appendix
 #### 1 Refer function hex string->bytearray and bytearray->hex string
 ```
     private final static char[] hexArray = "0123456789abcdef".toCharArray();
