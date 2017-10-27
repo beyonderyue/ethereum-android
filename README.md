@@ -1,5 +1,10 @@
 # ethereum-android (geth)
 
+## 0.0 Setup envirement
+In your app build.gradle, add the line below
+```
+compile 'org.ethereum:geth:1.7.1'
+```
 ## 1.1 Create KeyStore
  ```
  KeyStore ks = new KeyStore(Environment.getExternalStorageDirectory().getPath() + 
@@ -58,13 +63,13 @@ tops.setNonce(ec.getNonceAt(ctt, act.getAddress(), -1));
 ## 2.2 Put the code and abi of your contract here
 ```
 String bytecode = "6060604052341561000c57fe5b5b60b38061001b6000396000f300606060405263ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631003e2d2811460435780636d4ce63c146055575bfe5b3415604a57fe5b60536004356074565b005b3415605c57fe5b60626080565b60408051918252519081900360200190f35b60008054820190555b50565b6000545b905600a165627a7a72305820cea55ffbb44b744ad40c6f202f52d1fcd2d8cc0a1cf29b6b3f93e6a4b1b0f3120029";
-        String abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"i\",\"type\":\"uint256\"}],\"name\":\"add\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"get\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]";
+String abi = "[{\"constant\":false,\"inputs\":[{\"name\":\"i\",\"type\":\"uint256\"}],\"name\":\"add\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"get\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]";
 ```
-## 2.2 Deploy the contract now
+## 2.3 Deploy the contract now
 ```
 Geth.deployContract(tops, abi, hexStringToByteArray(bytecode), ec, new Interfaces(0));
 ```
-## 2.2 Get value from the contract
+## 2.4 Get value from the contract
 ```
 CallMsg callMsg = Geth.newCallMsg();
 callMsg.setTo(new Address("218FeeF49FB0582c7bB739ab0DEf617c651ec8c3".toLowerCase()));//This is the contract address
@@ -73,7 +78,7 @@ byte[] ret = null;
 ret = ec.callContract(ctt, callMsg, -1);
 Log.e("ret is ", bytesToHex(ret));
 ```
-## 2.3 Set the value to the contract
+## 2.5 Set the value to the contract
 You need send transaction, and you need set data
 
 Enjoy it!
