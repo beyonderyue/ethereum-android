@@ -1,6 +1,6 @@
 # ethereum-android (geth)
 
-## 0 Setup envirement
+## 0 Setup environment
 In your app build.gradle, add the line below
 ```gradle
 compile 'org.ethereum:geth:1.7.1'
@@ -93,7 +93,7 @@ hexStringToByteArray("1003e2d200000000000000000000000000000000000000000000000000
 Enjoy it!
 
 # Appendix
-#### 1 Refer function hex string->bytearray and bytearray->hex string
+#### A Refer function hex string->bytearray and bytearray->hex string
 ```java
     private final static char[] hexArray = "0123456789abcdef".toCharArray();
     public static String bytesToHex(byte[] bytes) {
