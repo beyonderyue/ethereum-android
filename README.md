@@ -46,7 +46,7 @@ signedtx = ks.signTxPassphrase(act, "123456", tx, new BigInt(13539919)/*Your net
 ```java
 ec.sendTransaction(ctx,signedtx);
 ```
-## 1.8 Get a receipt
+### 1.8 Get a receipt
 ```java
 Receipt rec = null;
 rec = ec.getTransactionReceipt(ctt, signedtx.getHash());
