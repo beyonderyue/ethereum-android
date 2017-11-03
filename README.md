@@ -49,7 +49,7 @@ ec.sendTransaction(ctx,signedtx);
 ### 1.8 Get a receipt
 ```java
 Receipt rec = null;
-rec = ec.getTransactionReceipt(ctt, signedtx.getHash());
+rec = ec.getTransactionReceipt(ctx, signedtx.getHash());
 ```
 ## 2 Contract
 ### 2.1 Prepare deploy a contract
@@ -60,7 +60,7 @@ tops.setFrom(act.getAddress());
 tops.setGasLimit(900000);
 tops.setGasPrice(new BigInt(30000));
 tops.setSigner(new MySigner(act,ks,"123456", new BigInt(13539919)));//Refer MySigner.java
-tops.setNonce(ec.getNonceAt(ctt, act.getAddress(), -1));
+tops.setNonce(ec.getNonceAt(ctx, act.getAddress(), -1));
 ```
 ### 2.2 Put the code and abi of your contract here
 ```java
@@ -77,7 +77,7 @@ CallMsg callMsg = Geth.newCallMsg();
 callMsg.setTo(new Address("218FeeF49FB0582c7bB739ab0DEf617c651ec8c3".toLowerCase()));//This is the contract address
 callMsg.setData(hexStringToByteArray("6d4ce63c"));
 byte[] ret = null;
-ret = ec.callContract(ctt, callMsg, -1);
+ret = ec.callContract(ctx, callMsg, -1);
 Log.e("ret is ", bytesToHex(ret));
 ```
 ### 2.5 Set the value to the contract
